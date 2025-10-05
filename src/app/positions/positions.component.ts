@@ -23,8 +23,19 @@ export class PositionsComponent {
 
   // Local table data signal, seeded from config.mockData when available
   protected readonly rows = signal<RowData[]>([]);
+  protected readonly formInitialized = signal(false);
 
   constructor() {
+    // Initialize form once fields are available
+    effect(() => {
+      const fields = this.fields();
+      if (fields && fields.length > 0 && !this.formInitialized()) {
+        this.initForm(fields);
+        this.formInitialized.set(true);
+      }
+    });
+
+    // Seed initial rows from config mock data
     effect(() => {
       const seed = this.config.mockData();
       if (seed && seed.length > 0) {
