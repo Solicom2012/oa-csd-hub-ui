@@ -26,7 +26,7 @@ export interface AppConfig {
 export class ConfigService {
   private readonly http = inject(HttpClient);
 
-  readonly config = toSignal<AppConfig | null>(this.http.get<AppConfig>('/config.json'), {
+  readonly config = toSignal<AppConfig | null>(this.http.get<AppConfig>('config.json'), {
     initialValue: null,
   });
 
