@@ -1,0 +1,45 @@
+.positions {
+  padding: 1rem;
+}
+
+.positions-form .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.control {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.actions {
+  margin-top: 0.75rem;
+}
+
+.positions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.positions-table th,
+.positions-table td {
+  border: 1px solid #eee;
+  padding: 0.5rem 0.75rem;
+}
+
+.row-actions button + button {
+  margin-inline-start: 0.5rem;
+}
