@@ -1,0 +1,61 @@
+<section class="positions" *ngIf="fields().length as len">
+  <form class="positions-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="grid">
+      @for (field of fields(); track trackByIndex($index, field)) {
+        <label class="field">
+          <span class="label">{{ field.label ?? field.name }}</span>
+
+          @switch (field.type) {
+            @case ('select') {
+              <select class="control" [formControlName]="field.name">
+                @for (opt of field.options ?? []; track opt) {
+                  <option [value]="opt">{{ opt }}</option>
+                }
+              </select>
+            }
+            @case ('number') {
+              <input class="control" type="number" [formControlName]="field.name" [readonly]="field.readonly" />
+            }
+            @default {
+              <input class="control" type="text" [formControlName]="field.name" [readonly]="field.readonly" />
+            }
+          }
+        </label>
+      }
+    </div>
+
+    <div class="actions">
+      @if (actions().includes('add')) {
+        <button type="submit">افزودن</button>
+      }
+    </div>
+  </form>
+
+  <table class="positions-table" *ngIf="rows().length">
+    <thead>
+      <tr>
+        @for (field of fields(); track field.name) {
+          <th>{{ field.label ?? field.name }}</th>
+        }
+        <th>اقدامات</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of rows(); track $index) {
+        <tr>
+          @for (field of fields(); track field.name) {
+            <td>{{ row[field.name] }}</td>
+          }
+          <td class="row-actions">
+            @if (actions().includes('edit')) {
+              <button type="button" (click)="onEdit($index)">ویرایش</button>
+            }
+            @if (actions().includes('delete')) {
+              <button type="button" (click)="onDelete($index)">حذف</button>
+            }
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,21 @@
+{
+  "title": "مدیریت سمت‌ها",
+  "hero": {
+    "image": "mockups/hero.png",
+    "heading": "مدیریت سمت‌ها",
+    "subheading": "فرم‌ها و جدول‌ها با داده‌های نمونه"
+  },
+  "fields": [
+    { "name": "level", "type": "number", "label": "سطح", "readonly": true },
+    { "name": "title", "type": "select", "options": ["کارشناس", "مدیر", "ناظر"] },
+    { "name": "postNumber", "type": "number", "label": "شماره پست" },
+    { "name": "defaultJobTitle", "type": "text", "label": "سمت پیش‌فرض" },
+    { "name": "userJobTitle", "type": "text", "label": "سمت کاربر" }
+  ],
+  "actions": ["add", "edit", "delete"],
+  "mockData": [
+    { "level": 1, "title": "کارشناس", "postNumber": 101, "defaultJobTitle": "کارشناس IT", "userJobTitle": "علی" },
+    { "level": 2, "title": "مدیر", "postNumber": 102, "defaultJobTitle": "مدیر پروژه", "userJobTitle": "سارا" },
+    { "level": 3, "title": "ناظر", "postNumber": 103, "defaultJobTitle": "ناظر فنی", "userJobTitle": "رضا" }
+  ]
+}

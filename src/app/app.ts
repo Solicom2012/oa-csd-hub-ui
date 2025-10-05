@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
+import { HeroComponent } from './hero/hero.component';
+import { PositionsComponent } from './positions/positions.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [HeroComponent, PositionsComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
